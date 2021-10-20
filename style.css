@@ -18,20 +18,30 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
-.main-header {
+.button, .showcase__button, .showcase__item--infos button, .main-infos__form button, .header__section > nav button {
+  background-color: #fff;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  font-family: "HelveticaNeueRegular";
+  color: #888;
+  cursor: pointer;
+}
+
+.header {
   position: relative;
   height: 24.875rem;
 }
 
-.main-header__back-shape {
+.header__back-shape {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: #707070;
 }
-.main-header__back-shape::after {
+.header__back-shape::after {
   position: absolute;
   bottom: 0;
   content: "";
@@ -39,34 +49,34 @@ body {
   border-left: 100vw solid #fff;
 }
 
-.main-header__section {
+.header__section {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
 }
-.main-header__section > div {
+.header__section > div {
   padding-left: 1rem;
   padding-right: 2.875rem;
   color: #fff;
 }
-.main-header__section h2, .main-header__section h3 {
+.header__section h2, .header__section h3 {
   font-family: "HelveticaNeueRegular";
   letter-spacing: 0.04rem;
   margin: 0;
 }
-.main-header__section h2 {
+.header__section h2 {
   font-size: 1.25rem;
 }
-.main-header__section h1 {
+.header__section h1 {
   font-family: "HelveticaNeueBold";
   font-size: 2.5rem;
   margin: 0 0 0.5rem;
 }
-.main-header__section h3 {
+.header__section h3 {
   font-size: 0.875rem;
 }
-.main-header__section > nav {
+.header__section > nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -74,29 +84,256 @@ body {
   width: 21.625rem;
   margin: 3.5rem auto 0;
 }
-.main-header__section > nav a {
+.header__section > nav a {
   text-decoration: none;
   width: 10rem;
 }
-.main-header__section > nav button {
-  border: 1px solid #707070;
-  border-radius: 4px;
-  font-family: "HelveticaNeueRegular";
-  font-size: 0.875rem;
+.header__section > nav button {
   height: 2.5rem;
   width: 10rem;
+  box-shadow: 0px 1px 6px #00000029;
+  font-size: 0.875rem;
+}
+
+.main-infos {
+  padding: 0 1rem;
+  font-family: "HelveticaNeueRegular";
   color: #888;
+}
+.main-infos > div {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.main-infos__wrapper {
+  max-width: 32.5rem;
+}
+.main-infos__wrapper > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main-infos__wrapper > div h2 {
+  font-size: 1.25rem;
+  margin: 0;
+  letter-spacing: 0.07rem;
+}
+.main-infos__wrapper > div a {
+  text-decoration: none;
+}
+.main-infos__wrapper > div span {
+  width: 1.125rem;
+}
+.main-infos__wrapper p {
+  font-size: 0.75rem;
+  letter-spacing: 0.05rem;
+  margin: 0;
+}
+.main-infos__wrapper p:first-of-type {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.main-infos__form {
+  max-width: 24.25rem;
+  width: 100%;
+}
+.main-infos__form label, .main-infos__form input {
+  font-size: 0.75rem;
+  letter-spacing: 0.06rem;
+}
+.main-infos__form input {
+  font-family: inherit;
+  color: inherit;
+  border: 1px solid #707070;
+}
+.main-infos__form > label {
+  display: block;
+  margin: 1.25rem 0 0.44rem;
+}
+.main-infos__form label:first-of-type {
+  margin: 1.875rem 0 0;
+}
+.main-infos__form > input {
+  width: 100%;
+  height: 1.875rem;
+}
+.main-infos__form > div {
+  margin: 1.25rem 0;
+}
+.main-infos__form > div input {
+  border-radius: 0.875rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  vertical-align: middle;
+  margin: 0;
+}
+.main-infos__form > div input:last-of-type {
+  margin-left: 2.5rem;
+}
+.main-infos__form button {
+  width: 100%;
+  height: 2.4375rem;
+  font-size: 1rem;
+  letter-spacing: 0.06rem;
+}
+
+.showcase {
+  width: 100%;
+  margin-top: 5.68rem;
+}
+.showcase > div:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.showcase > div:first-of-type span {
+  width: calc(50% - 6.7rem);
+  min-width: 6.3rem;
+  height: 2px;
+  background-color: #888;
+}
+.showcase > div:first-of-type h2 {
+  font-family: "HelveticaNeueBold";
+  font-size: 1.125rem;
+  color: #888;
+  margin: 0 1rem;
+  text-align: center;
+}
+.showcase > div:last-of-type {
+  padding-left: 0.56rem;
+  max-width: 26.25rem;
+  margin: 0 auto;
+}
+
+.showcase__list {
+  max-width: 24.5rem;
+  width: 100%;
+  padding: 0;
+  display: grid;
+  gap: 1.875rem;
+  margin-top: 1.43rem;
+}
+
+.showcase__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase__item--image {
+  width: 10.56rem;
+  height: 8.0625rem;
+  text-align: center;
+}
+
+.showcase__item--infos {
+  width: 51.03%;
+  color: #888;
+  font-family: "HelveticaNeueRegular";
+}
+.showcase__item--infos span {
+  display: block;
+}
+.showcase__item--infos button {
+  width: 100%;
+  height: 1.875rem;
+  font-size: 1rem;
+  margin-top: 0.625rem;
+}
+
+.showcase__item--product-name {
+  font-size: 0.875rem;
+  margin-bottom: 0.8125rem;
+}
+
+.showcase__item--description {
+  display: none;
+}
+
+.showcase__item--old-price,
+.showcase__item--installment-price {
+  font-size: 0.75rem;
+}
+
+.showcase__item--new-price {
+  font-family: "HelveticaNeueBold";
+  font-size: 1rem;
+  margin: 0.375rem 0;
+}
+
+.showcase__button {
+  margin: 3.31rem auto 0;
+  display: block;
+  max-width: 16.25rem;
+  width: 100%;
+  height: 2.44rem;
+  font-size: 1rem;
+  letter-spacing: 0.02rem;
 }
 
 @media (min-width: 50rem) {
-  .main-header__section > div {
+  .header__section > div {
     text-align: center;
   }
 }
 @media (min-width: 50rem) {
-  .main-header__section > nav {
+  .header__section > nav {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 100%;
     width: 48rem;
+  }
+}
+@media (min-width: 60rem) {
+  .main-infos__wrapper > div span {
+    display: none;
+  }
+
+  .main-infos > div {
+    align-items: flex-start;
+    flex-direction: row;
+    max-width: 57.5rem;
+  }
+  .main-infos__form {
+    max-width: 21.25rem;
+  }
+  .main-infos__wrapper p {
+    letter-spacing: 0.03rem;
+  }
+  .main-infos__form label:first-of-type {
+    margin: 0;
+  }
+
+  .showcase > div:first-of-type, .showcase > div:last-of-type {
+    max-width: 57.75rem;
+  }
+  .showcase > div:first-of-type {
+    margin: 0 auto;
+  }
+  .showcase > div:last-of-type {
+    padding-left: 0;
+    margin: 0 auto;
+  }
+  .showcase__list {
+    max-width: none;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 3.125rem;
+  }
+  .showcase__item {
+    width: 12.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  .showcase__item--image, .showcase__item--infos {
+    width: 100%;
+  }
+  .showcase__item--image {
+    height: 9.375rem;
+  }
+  .showcase__item--description {
+    display: block;
+    font-size: 0.75rem;
   }
 }/*# sourceMappingURL=style.css.map */

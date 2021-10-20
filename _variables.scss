@@ -15,8 +15,10 @@
 }
 
 $colors: ("color1": #707070, "color2": #fff, "color3": #888);
-$default-sizes: ("size1": 1rem, "size2": 2.875rem, "size3": 4px, "size4": 10rem, "size5": 2.5rem, "size6": 1.25rem);
-$default-font-sizes: ("size1": 2.5rem, "size2": 1.25rem, "size3": 0.875rem);
+$default-sizes: ("size1": 1rem, "size2": 2.875rem, "size4": 10rem, "size5": 2.5rem, "size6": 1.25rem);
+$default-font-sizes: ("font-size1": 2.5rem, "font-size2": 1.25rem, "font-size3": 0.875rem, "font-size4": 0.75rem, "font-size5": 1rem, "font-size6": 1.125rem);
 $fonts: ("font1": 'HelveticaNeueRegular', "font2": 'HelveticaNeueBold');
-$breakpoints: ("breakpoint1": 44rem, "breakpoint2": 50rem);
+$breakpoints: ("breakpoint1": 44rem, "breakpoint2": 50rem, "breakpoint3": 60rem);
+$default-border-radius: 4px;
+$default-border: 1px solid map-get($colors, "color1");
 
