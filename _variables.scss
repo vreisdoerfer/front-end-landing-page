@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'HelveticaNeueRegular';
+    src: url('./fonts/HelveticaNeueRegular.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueBold';
+    src: url('./fonts/HelveticaNeueBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+$colors: ("color1": #707070, "color2": #fff, "color3": #888);
+$default-sizes: ("size1": 1rem, "size2": 2.875rem, "size3": 4px, "size4": 10rem, "size5": 2.5rem, "size6": 1.25rem);
+$default-font-sizes: ("size1": 2.5rem, "size2": 1.25rem, "size3": 0.875rem);
+$fonts: ("font1": 'HelveticaNeueRegular', "font2": 'HelveticaNeueBold');
+$breakpoints: ("breakpoint1": 44rem, "breakpoint2": 50rem);
+

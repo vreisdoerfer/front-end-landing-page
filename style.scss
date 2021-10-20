@@ -1,0 +1,108 @@
+@use 'variables';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.main-header {
+    position: relative;
+    height: 24.875rem;
+}
+
+.main-header__back-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: map-get(variables.$colors, "color1");
+    &::after {
+        position: absolute;
+        bottom: 0;
+        content: "";
+        border-top: 8.5rem solid transparent;
+        border-left: 100vw solid map-get(variables.$colors, "color2");
+    }
+}
+
+.main-header__section {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    
+    & > div {
+        padding-left: map-get(variables.$default-sizes, "size1");
+        padding-right: map-get(variables.$default-sizes, "size2");
+        color: map-get(variables.$colors, "color2");
+    }
+    
+    h2, h3 {
+        font-family: map-get(variables.$fonts, "font1");
+        letter-spacing: .04rem;
+        margin: 0;
+    }
+    
+    h2 {
+        font-size: map-get(variables.$default-font-sizes, "size2");
+    }
+    
+    h1 {
+        font-family: map-get(variables.$fonts, "font2");
+        font-size: map-get(variables.$default-font-sizes, "size1");
+        margin: 0 0 .5rem;
+    }
+    
+    h3 {
+        font-size: map-get(variables.$default-font-sizes, "size3");
+    }
+    
+    & > nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: map-get(variables.$default-sizes, "size6");
+        width: 21.625rem;
+        margin: 3.5rem auto 0;
+        
+        a {
+            text-decoration: none;
+            width: map-get(variables.$default-sizes, "size4");
+        }
+        
+        button {
+            border: 1px solid map-get(variables.$colors, "color1");
+            border-radius: map-get(variables.$default-sizes, "size3");
+            font-family: map-get(variables.$fonts, "font1");
+            font-size: map-get(variables.$default-font-sizes, "size3");
+            height: map-get(variables.$default-sizes, "size5");
+            width: map-get(variables.$default-sizes, "size4");
+            color: map-get(variables.$colors, "color3"); 
+        }
+    }
+}
+
+@media (min-width: map-get(variables.$breakpoints, "breakpoint2")) {
+    .main-header__section {
+        
+        & > div {
+            text-align: center;
+        }
+        
+        
+    }
+    
+}
+
+@media (min-width: map-get(variables.$breakpoints, "breakpoint2")) {
+    .main-header__section {
+        & > nav {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 100%;
+            width: 48rem;
+        }
+    }
+    
+}
