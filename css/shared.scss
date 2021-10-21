@@ -1,0 +1,107 @@
+@use 'variables';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    position: relative;
+    height: 24.875rem;
+}
+
+.header__back-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: map-get(variables.$colors, "color1");
+    &::after {
+        position: absolute;
+        bottom: 0;
+        content: "";
+        border-top: 8.5rem solid transparent;
+        border-left: 100vw solid map-get(variables.$colors, "color2");
+    }
+}
+
+.header__section {
+    & > div {
+        padding-left: map-get(variables.$default-sizes, "size1");
+        padding-right: map-get(variables.$default-sizes, "size2");
+        color: map-get(variables.$colors, "color2");
+    }
+    
+    h2, h3 {
+        font-family: map-get(variables.$fonts, "font1"), sans-serif;
+        letter-spacing: .04rem;
+        margin: 0;
+    }
+    
+    h2 {
+        font-size: map-get(variables.$default-font-sizes, "font-size2");
+    }
+    
+    h1 {
+        font-family: map-get(variables.$fonts, "font2"), sans-serif;
+        font-size: map-get(variables.$default-font-sizes, "font-size1");
+        margin: 0 0 .5rem;
+    }
+    
+    h3 {
+        font-size: map-get(variables.$default-font-sizes, "font-size3");
+    }
+}
+
+
+
+.footer {
+    position: relative;
+    height: 9.875rem;
+    margin-top: 5.3rem;
+}
+
+.footer__back-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: map-get(variables.$colors, "color1");
+    &::after {
+        position: absolute;
+        top: 0;
+        content: "";
+        border-bottom: 3.19rem solid transparent;
+        border-left: 100vw solid map-get(variables.$colors, "color2");
+    }
+}
+
+.footer__infos {
+    position: absolute;
+    bottom: 35%;
+    left: 0;
+    transform: translateY(50%);
+    font-family: map-get(variables.$fonts, "font1");
+    font-size: map-get(variables.$default-font-sizes, "font-size4");
+    color: map-get(variables.$colors, "color2");
+    text-align: center;
+    width: 100%;
+    letter-spacing: .04rem;
+    line-height: 1.5;
+    
+    span {
+        display: block;
+    }
+}
+
+@media (min-width: map-get(variables.$breakpoints, "breakpoint4")) {
+    .footer {
+        height: 18.3rem;
+        
+        &::after {
+            border-bottom: 5.75rem solid transparent;
+        }
+    }
+}

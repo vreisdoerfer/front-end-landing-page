@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "HelveticaNeueRegular";
+  src: url("../fonts/HelveticaNeueRegular.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HelveticaNeueBold";
+  src: url("../fonts/HelveticaNeueBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+.header__section {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+@media (min-width: 37.5rem) {
+  .header {
+    height: 12.375rem;
+  }
+  .header__back-shape::after {
+    border-top: 4rem solid transparent;
+  }
+  .header__section {
+    top: 36%;
+    text-align: center;
+  }
+  .header__section > div {
+    padding: 0;
+    max-width: 22.375rem;
+    margin: 0 auto;
+  }
+}/*# sourceMappingURL=newsletter.css.map */

@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Front End Test</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/shared.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <header class="header" id="header">
@@ -20,7 +21,7 @@
                 <a href="#header"><button>Conheça a Linx</button></a>
                 <a href="#main-infos"><button>Ajude o algorítimo</button></a>
                 <a href="#showcase"><button>Seus produtos</button></a>
-                <a href="#"><button>Compartilhe</button></a>
+                <a href="#share"><button>Compartilhe</button></a>
             </nav>
         </section>
     </header>
@@ -41,11 +42,11 @@
                     <label for="email">E-mail:</label>
                     <input type="email" name="email" required id="your-email">
                     <label for="cpf">CPF:</label>
-                    <input type="number" name="cpf" required id="your-cpf">
+                    <input type="text" name="cpf" required id="your-cpf">
                     <div>
-                        <input type="radio" id="man" name="gender-select">
+                        <input type="radio" id="man" name="gender-select" required>
                         <label for="man">Masculino</label>
-                        <input type="radio" id="woman" name="gender-select">
+                        <input type="radio" id="woman" name="gender-select" required>
                         <label for="woman">Feminino</label>
                     </div>
                     <button type="submit">Enviar</button>
@@ -53,34 +54,52 @@
             </div>
         </section>
         <section class="showcase" id="showcase">
-            <div>
-                <span></span>
-                <h2>Sua seleção especial</h2>
-                <span></span>
+            <div class="showcase__wrapper">
+                <div>
+                    <span></span>
+                    <h2>Sua seleção especial</h2>
+                    <span></span>
+                </div>
+                <div>
+                    <ul class="showcase__list"></ul>
+                </div>
+                <button class="showcase__button">Ainda mais produtos aqui!</button>
             </div>
-            <div>
-                <ul class="showcase__list">
-                    <!-- <li class="showcase__item">
-                        <div class="showcase__item--image">
-                            <img src="//imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6747399" alt="">
+        </section>
+        <section class="share" id="share">
+            <div class="share__wrapper">
+                <div>
+                    <span></span>
+                    <h2>Compartilhe a novidade</h2>
+                    <span></span>
+                </div>
+                <p>Quer que seus amigos também ganhem a lista personalizada deles? Preencha agora!</p>
+                <div>
+                    <form class="share__form" action="./newsletter.html">
+                        <div class="share__form--fields">
+                            <div>
+                                <label for="friend-name">Nome do seu amigo:</label>
+                                <input type="text" name="friend-name" required id="friend-name">
+                            </div>
+                            <div>
+                                <label for="friend-email">E-mail dele:</label>
+                                <input type="text" name="friend-email" required id="friend-email">
+                            </div>
                         </div>
-                        <div class="showcase__item--infos">
-                            <span class="showcase__item--product-name">Nome do produto</span>
-                            <p class="showcase__item--description">Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata.</p>
-                            <span class="showcase__item--old-price">De: R$23,99</span>
-                            <span class="showcase__item--new-price">Por: R$19,99</span>
-                            <span class="showcase__item--installment-price">ou 2x de R$9,99</span>
-                            <button>Comprar</button>
-                        </div>
-                    </li> -->
-                </ul>
+                        <button type="submit">Enviar agora</button>
+                    </form>
+                </div>
             </div>
-            <button class="showcase__button">Ainda mais produtos aqui!</button>
         </section>
     </main>
-    <footer>
-        
+    <footer class="footer">
+        <div class="footer__back-shape"></div>
+        <div class="footer__infos">
+            <span>Testando suas habilidades em HTML, CSS e JS</span>
+            <span>Linx Impulse</span>
+            <span>2019</span>
+        </div>
     </footer>
-    <script src='index.js'></script>
+    <script src='./js/index.js' type="module"></script>
 </body>
 </html>

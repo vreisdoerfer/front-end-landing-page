@@ -1,0 +1,31 @@
+@use "variables";
+
+.header__section {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+@media (min-width: map-get(variables.$breakpoints, "breakpoint1")) {
+    .header {
+        height: 12.375rem;
+        &__back-shape {
+            &::after {
+                border-top: 4rem solid transparent;
+            }
+        }
+        
+        &__section {
+            top: 36%;
+            text-align: center;
+
+            & > div {
+                padding: 0;
+                max-width: 22.375rem;
+                margin: 0 auto;
+            }
+        }
+
+    }
+}
