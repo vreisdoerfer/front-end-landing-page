@@ -1,9 +1,31 @@
 @use 'variables';
 @use 'classes';
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    position: relative;
+    height: 24.875rem;
+}
 
 .header__back-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: map-get(variables.$colors, "color1");
     &::after {
+        position: absolute;
+        bottom: 0;
+        content: "";
+        border-top: 8.5rem solid transparent;
+        border-left: 100vw solid map-get(variables.$colors, "color2");
     }
 }
 
@@ -12,23 +34,50 @@
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
+    
+    & > div {
+        padding-left: map-get(variables.$default-sizes, "size1");
+        padding-right: map-get(variables.$default-sizes, "size2");
+        color: map-get(variables.$colors, "color2");
+    }
+    
+    h2, h3 {
+        font-family: map-get(variables.$fonts, "font1"), sans-serif;
+        letter-spacing: .04rem;
+        margin: 0;
+    }
+    
+    h2 {
+        font-size: map-get(variables.$default-font-sizes, "font-size2");
+    }
+    
+    h1 {
+        font-family: map-get(variables.$fonts, "font2"), sans-serif;
+        font-size: map-get(variables.$default-font-sizes, "font-size1");
+        margin: 0 0 .5rem;
+    }
+    
+    h3 {
+        font-size: map-get(variables.$default-font-sizes, "font-size3");
+    }
+    
     & > nav {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: map-get(variables.$default-sizes, "size6");
-        width: 21.625rem;
+        width: 17.625rem;
         margin: 3.5rem auto 0;
+        justify-items: center;
         
         a {
             text-decoration: none;
-            width: map-get(variables.$default-sizes, "size4");
         }
         
         button {
             @extend .button;
             height: map-get(variables.$default-sizes, "size5");
-            width: map-get(variables.$default-sizes, "size4");
+            width: 8rem;
             box-shadow: 0px 1px 6px #00000029;
             font-size: map-get(variables.$default-font-sizes, "font-size3");
         }
@@ -58,12 +107,13 @@
         
         h2 {
             font-size: map-get(variables.$default-font-sizes, "font-size2");
-            margin: 0;
+            margin: 0 .5rem 0 0;
             letter-spacing: .07rem;
         }
         
         a {
             text-decoration: none;
+            align-self: flex-start;
         }
         
         span {
@@ -154,7 +204,7 @@
 
 .showcase__list {
     max-width: 24.5rem;
-    width: 100%;
+    width: 96%;
     padding: 0;
     display: grid;
     gap: 1.875rem;
@@ -167,9 +217,12 @@
 }
 
 .showcase__item--image {
-    width: 10.56rem;
+    width: 47%;
     height: 8.0625rem;
     text-align: center;
+    border: 1px solid #707070;
+    overflow: hidden;
+    max-width: 10.56rem;
 }
 
 .showcase__item--infos {
@@ -186,7 +239,7 @@
         width: 100%;
         height: 1.875rem;
         font-size: 1rem;
-        margin-top: 0.625rem;
+        margin-top: 0.815rem;
     }
 }
 
@@ -256,7 +309,7 @@
         }
     }
     &__form {
-        width: 100%;
+        width: 95%;
         max-width: 24.44rem;
         
         label {
@@ -276,6 +329,57 @@
             margin: 2.62rem auto 0;
             display: block;
             font-size: map-get(variables.$default-font-sizes, "font-size5");
+        }
+    }
+}
+
+
+.footer {
+    position: relative;
+    height: 9.875rem;
+    margin-top: 5.3rem;
+}
+
+.footer__back-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: map-get(variables.$colors, "color1");
+    &::after {
+        position: absolute;
+        top: 0;
+        content: "";
+        border-bottom: 3.19rem solid transparent;
+        border-left: 100vw solid map-get(variables.$colors, "color2");
+    }
+}
+
+.footer__infos {
+    position: absolute;
+    bottom: 35%;
+    left: 0;
+    transform: translateY(50%);
+    font-family: map-get(variables.$fonts, "font1");
+    font-size: map-get(variables.$default-font-sizes, "font-size4");
+    color: map-get(variables.$colors, "color2");
+    text-align: center;
+    width: 100%;
+    letter-spacing: .04rem;
+    line-height: 1.5;
+    
+    span {
+        display: block;
+    }
+}
+
+@media (min-width: map-get(variables.$breakpoints, "breakpoint1")) {
+    .header__section {
+        & > nav {
+            width: 21.625rem;
+            justify-items: start;
+            button {
+                width: 10rem;
+            }
         }
     }
 }
@@ -344,6 +448,7 @@
         }
         
         &__list {
+            width: 100%;
             max-width: none;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             margin-bottom: 3.125rem;
@@ -361,6 +466,8 @@
             
             &--image {
                 height: 9.375rem;
+                margin-bottom: 0.875rem;
+                max-width: none;
             }
             &--description {
                 display: block;
@@ -388,6 +495,14 @@
                     width: 47.23%;
                 }
             }
+        }
+    }
+    
+    .footer {
+        height: 18.3rem;
+        
+        &::after {
+            border-bottom: 5.75rem solid transparent;
         }
     }
 }

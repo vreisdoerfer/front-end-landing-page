@@ -7,24 +7,20 @@ import emailValidator from './email-validator.js';
 var apiLink =
 "https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1";
 
-const loadApi = () => {
-  var xhttp = new XMLHttpRequest();
-  var response;
-  xhttp.onreadystatechange = () => {
-    console.log(xhttp.readyState);
-    if (xhttp.readyState == 4) {
-      // console.log(xhttp.response);
-      response = JSON.parse(xhttp.response);
-      var apiResults = response.products;
-      var newLink = response.nextPage;
-      console.log(apiResults);
-      console.log(newLink);
-      apiLink = "https://" + newLink;
-      showData(apiResults);
-    }
-  };
-  xhttp.open("GET", apiLink, true);
-  xhttp.send();
+const options = {
+  method: "GET",
+};
+
+const loadApi = async () => {
+  try {
+    const response = await fetch(apiLink, options);
+    const data = await response.json();
+    var apiResults = data.products;
+    var newLink = data.nextPage;
+    showData(apiResults);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const showData = (apiData) => {
@@ -34,7 +30,7 @@ const showData = (apiData) => {
     console.log(data.name);
     output += `<li class="showcase__item">
     <div class="showcase__item--image">
-    <img src="${data.image}" alt="">
+    <img src="${data.image}" alt="Product">
     </div>
     <div class="showcase__item--infos">
     <span class="showcase__item--product-name">${data.name}</span>
@@ -50,29 +46,40 @@ const showData = (apiData) => {
 };
 
 const chageInputColor = (target, isValid) => {
+  var result = true;
   var bordColor = "#707070";
   var bgColor = "white";
   if(!isValid) {
     bordColor = "red";
     bgColor = "#ffe0e0";
+    result = false;
   }
   target.style.borderColor = bordColor;
   target.style.backgroundColor = bgColor;
+  return result;
 }
 
-const validateCpf = (target) => {
-  chageInputColor(target, cpfValidator(target.value));
+const addInputEvents = () => {
+  var inputFields = document.querySelectorAll('.form-inputs');
+  inputFields.forEach((inputField) => {
+    inputField.addEventListener("blur", (event) => {
+      validateInputField(event.target);
+    });
+  });
 }
 
-const validateEmail = (target) => {
-  chageInputColor(target, emailValidator(target.value));
-}
-
-const validateName = (target) => {
-  chageInputColor(target, target.value.length >= 3);
+const validateInputField = (target) => {
+  if(target.type === "email") {
+    return chageInputColor(target, emailValidator(target.value));
+  } else if(target.id === "friend-name" || target.id === "your-name") {
+    return chageInputColor(target, target.value.length >= 3);
+  } else if(target.id === "your-cpf") {
+    return chageInputColor(target, cpfValidator(target.value));
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  addInputEvents();
   loadApi();
 })
 
@@ -80,38 +87,19 @@ document.querySelector('.showcase__button').addEventListener('click', () => {
   loadApi();
 })
 
-document.querySelector("#your-name").addEventListener('blur', (event) => {
-  validateName(event.target);
+document.querySelector(".main-infos__form button").addEventListener("click", (event) => {
+  var nameInputIsValid = validateInputField(document.querySelector("#your-name"));
+  var cpfInputIsValid = validateInputField(document.querySelector("#your-cpf"));
+  var emailInputIsValid = validateInputField(document.querySelector("#your-email"));
+  if (!nameInputIsValid || !cpfInputIsValid || !emailInputIsValid) {
+    event.preventDefault();
+  }
 });
 
-document.querySelector("#your-cpf").addEventListener('blur', (event) => {
-  validateCpf(event.target);
-});
-
-document.querySelector("#your-email").addEventListener('blur', (event) => {
-  validateEmail(event.target);
-});
-
-document.querySelector("#friend-name").addEventListener("blur", (event) => {
-  validateName(event.target);
-});
-
-document.querySelector("#friend-email").addEventListener('blur', (event) => {
-  validateEmail(event.target);
-});
-
-document.querySelector(".main-infos__form button").addEventListener("click", () => {
-  var nameInput = document.querySelector("#your-name");
-  var cpfInput = document.querySelector("#your-cpf");
-  var emailInput = document.querySelector("#your-email");
-  validateName(nameInput);
-  validateCpf(cpfInput);
-  validateEmail(emailInput);
-});
-
-document.querySelector(".share__form button").addEventListener("click", () => {
-  var nameInput = document.querySelector("#friend-name");
-  var emailInput = document.querySelector("#friend-email");
-  validateName(nameInput);
-  validateEmail(emailInput);
+document.querySelector(".share__form button").addEventListener("click", (event) => {
+  var nameInputIsValid = validateInputField(document.querySelector("#friend-name"));
+  var emailInputIsValid = validateInputField(document.querySelector("#friend-email"));
+  if (!nameInputIsValid || !emailInputIsValid) {
+    event.preventDefault();
+  }
 });

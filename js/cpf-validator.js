@@ -28,7 +28,6 @@ const cpfValidator = cpf => {
   rev = 11 - (add % 11);
   if (rev == 10 || rev == 11) rev = 0;
   if (rev != parseInt(cpf.charAt(10))) return false;
-  console.log("válido");
   return true;
 }
 
