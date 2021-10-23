@@ -16,9 +16,7 @@ body {
 }
 
 .header__back-shape {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    @extend .pos-a-w-100-h-100;
     background-color: map-get(variables.$colors, "color1");
     &::after {
         position: absolute;
@@ -34,10 +32,9 @@ body {
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
-    
     & > div {
-        padding-left: map-get(variables.$default-sizes, "size1");
-        padding-right: map-get(variables.$default-sizes, "size2");
+        padding-left: variables.$default-size;
+        padding-right: 2.875rem;
         color: map-get(variables.$colors, "color2");
     }
     
@@ -48,24 +45,24 @@ body {
     }
     
     h2 {
-        font-size: map-get(variables.$default-font-sizes, "font-size2");
+        font-size: variables.$default-font-size * 1.25;
     }
     
     h1 {
         font-family: map-get(variables.$fonts, "font2"), sans-serif;
-        font-size: map-get(variables.$default-font-sizes, "font-size1");
+        font-size: variables.$default-font-size * 2.5;
         margin: 0 0 .5rem;
     }
     
     h3 {
-        font-size: map-get(variables.$default-font-sizes, "font-size3");
+        font-size: variables.$default-font-size * 0.875;
     }
     
     & > nav {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        gap: map-get(variables.$default-sizes, "size6");
+        gap: variables.$default-size * 1.25;
         width: 17.625rem;
         margin: 3.5rem auto 0;
         justify-items: center;
@@ -76,16 +73,16 @@ body {
         
         button {
             @extend .button;
-            height: map-get(variables.$default-sizes, "size5");
+            height: 2.5rem;
             width: 8rem;
             box-shadow: 0px 1px 6px #00000029;
-            font-size: map-get(variables.$default-font-sizes, "font-size3");
+            font-size: variables.$default-font-size * 0.875;
         }
     }
 }
 
 .main-infos {
-    padding: 0 map-get(variables.$default-sizes, "size1");
+    padding: 0 variables.$default-size;
     font-family: map-get(variables.$fonts, "font1"), sans-serif;
     color: map-get(variables.$colors, "color3");
     & > div {
@@ -106,7 +103,7 @@ body {
         justify-content: space-between;
         
         h2 {
-            font-size: map-get(variables.$default-font-sizes, "font-size2");
+            font-size: variables.$default-font-size * 1.25;
             margin: 0 .5rem 0 0;
             letter-spacing: .07rem;
         }
@@ -118,17 +115,22 @@ body {
         
         span {
             width: 1.125rem;
+            display: block;
+
+            img {
+                width: 100%;
+            }
         }
     }
     
     p {
-        font-size: map-get(variables.$default-font-sizes, "font-size4");
+        font-size: variables.$default-font-size * 0.75;
         letter-spacing: .05rem;
         margin: 0;
         
         &:first-of-type {
-            margin-top: map-get(variables.$default-sizes, 'size1');
-            margin-bottom: map-get(variables.$default-sizes, 'size1') * 2;
+            margin-top: variables.$default-size;
+            margin-bottom: variables.$default-size * 2;
         }
     }
 }
@@ -153,22 +155,21 @@ body {
     }
     
     & > div {
-        margin: map-get(variables.$default-sizes, 'size6') 0;
-        
+        margin: variables.$default-size * 1.25 0;
         input {
             vertical-align: middle;
             margin: 0;
         }
         
         input:last-of-type {
-            margin-left: map-get(variables.$default-sizes, 'size5');
+            margin-left: variables.$default-size * 2.5;
         }
     }
     button {
         @extend .button;
         width: 100%;
         height: 2.4375rem;
-        font-size: map-get(variables.$default-font-sizes, "font-size5");
+        font-size: variables.$default-font-size;
         letter-spacing: .06rem;
     }
 }
@@ -190,8 +191,8 @@ body {
         
         h2 {
             @extend .showcase-section__h2;
-            font-size: map-get(variables.$default-font-sizes, "font-size6");
-            margin: 0 1rem;
+            font-size: variables.$default-font-size * 1.125;
+            margin: 0 variables.$default-size;
         }
     }
     
@@ -220,7 +221,7 @@ body {
     width: 47%;
     height: 8.0625rem;
     text-align: center;
-    border: 1px solid #707070;
+    border: variables.$default-border;
     overflow: hidden;
     max-width: 10.56rem;
 }
@@ -244,7 +245,7 @@ body {
 }
 
 .showcase__item--product-name {
-    font-size: map-get(variables.$default-font-sizes, "font-size3");
+    font-size: variables.$default-font-size * 0.875;
     margin-bottom: 0.8125rem;
 }
 
@@ -254,15 +255,14 @@ body {
 
 .showcase__item--old-price, 
 .showcase__item--installment-price {
-    font-size: map-get(variables.$default-font-sizes, "font-size4");
+    font-size: variables.$default-font-size * 0.75;
 }
 
 .showcase__item--new-price {
     font-family: map-get(variables.$fonts, "font2"), sans-serif;
-    font-size: map-get(variables.$default-font-sizes, "font-size5");
+    font-size: variables.$default-font-size;
     margin: 0.375rem 0;
 }
-
 
 .showcase__button {
     @extend .button;
@@ -290,13 +290,13 @@ body {
             
             h2 {
                 @extend .showcase-section__h2;
-                font-size: map-get(variables.$default-font-sizes, "font-size6");
+                font-size: variables.$default-font-size * 1.125;
                 margin: 0 0.3rem;
             }
         }
         
         & > p {
-            font-size: map-get(variables.$default-font-sizes, "font-size3");
+            font-size: variables.$default-font-size * 0.875;
             color: map-get(variables.$colors, "color3");
             text-align: center;
             margin: 1.75rem 0;
@@ -328,7 +328,7 @@ body {
             height: 2.43rem;
             margin: 2.62rem auto 0;
             display: block;
-            font-size: map-get(variables.$default-font-sizes, "font-size5");
+            font-size: variables.$default-font-size;
         }
     }
 }
@@ -341,9 +341,7 @@ body {
 }
 
 .footer__back-shape {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    @extend .pos-a-w-100-h-100;
     background-color: map-get(variables.$colors, "color1");
     &::after {
         position: absolute;
@@ -360,7 +358,7 @@ body {
     left: 0;
     transform: translateY(50%);
     font-family: map-get(variables.$fonts, "font1");
-    font-size: map-get(variables.$default-font-sizes, "font-size4");
+    font-size: variables.$default-font-size * 0.75;
     color: map-get(variables.$colors, "color2");
     text-align: center;
     width: 100%;
@@ -471,7 +469,7 @@ body {
             }
             &--description {
                 display: block;
-                font-size: map-get(variables.$default-font-sizes, "font-size4");
+                font-size: variables.$default-font-size * 0.75;
             }
         }
     }

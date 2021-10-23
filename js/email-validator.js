@@ -1,6 +1,10 @@
+/*
+Recieves an email and validates if it is in the format x@x.x
+*/
+
 const emailValidator = email => {
-  var re = /\S+@\S+\.\S+/;
-  return re.test(email);
+  var reg = /\S+@\S+\.\S+/;
+  return reg.test(email);
 }
 
 export default emailValidator;

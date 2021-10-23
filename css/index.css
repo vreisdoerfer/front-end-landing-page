@@ -12,6 +12,12 @@
   font-style: normal;
   font-display: swap;
 }
+.pos-a-w-100-h-100, .header__back-shape, .footer__back-shape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .button, .header__section > nav button, .main-infos__form button, .showcase__item--infos button, .showcase__button, .share__form button {
   background-color: #fff;
   border: 1px solid #707070;
@@ -74,9 +80,6 @@ body {
 }
 
 .header__back-shape {
-  position: absolute;
-  width: 100%;
-  height: 100%;
   background-color: #707070;
 }
 .header__back-shape::after {
@@ -165,6 +168,10 @@ body {
 }
 .main-infos__wrapper > div span {
   width: 1.125rem;
+  display: block;
+}
+.main-infos__wrapper > div span img {
+  width: 100%;
 }
 .main-infos__wrapper p {
   font-size: 0.75rem;
@@ -330,9 +337,6 @@ body {
 }
 
 .footer__back-shape {
-  position: absolute;
-  width: 100%;
-  height: 100%;
   background-color: #707070;
 }
 .footer__back-shape::after {
