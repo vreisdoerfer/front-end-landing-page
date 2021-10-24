@@ -16,7 +16,7 @@
 
 $colors: ("color1": #707070, "color2": #fff, "color3": #888);
 $default-size: 1rem;
-$default-font-size: 1rem;
+$default-font-sizes: ("font-size1": 2.5rem, "font-size2": 1.25rem, "font-size3": 0.875rem, "font-size4": 0.75rem, "font-size5": 1rem, "font-size6": 1.125rem);
 $fonts: ("font1": 'HelveticaNeueRegular', "font2": 'HelveticaNeueBold');
 $breakpoints: ("breakpoint1": 23.5rem, "breakpoint2": 37.5rem, "breakpoint3": 50rem, "breakpoint4": 60rem);
 $default-border-radius: 4px;

@@ -38,7 +38,7 @@
 }
 
 .labels {
-    font-size: variables.$default-font-size * 0.75;
+    font-size: map-get(variables.$default-font-sizes, "font-size4");
     letter-spacing: .06rem;
 }
 
@@ -53,6 +53,7 @@
     border: variables.$default-border;
     width: 100%;
     height: 1.875rem;
+    padding: 0 .5rem;
 }
 
 //HELPFUL CLASSES
